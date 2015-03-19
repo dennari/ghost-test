@@ -1,0 +1,94 @@
+{{#post}}
+
+<article class="{{post_class}}">
+  {{#isdraft}}
+  <a class='btn btn-warning btn-xs read-more disabled' href="{{url}}">
+    draft
+  </a> 
+  {{/isdraft}}
+
+  <div class='row'>
+    <div class='col-sm-10'>
+
+      <header class="post-header">
+        <h1 class="post-title">{{title}}</h1>
+        <section class="post-meta">
+          <time class="post-date" datetime="{{mydate format='YYYY-MM-DD'}}">{{mydate format="L"}}</time> {{tags prefix=" on "}}
+        </section>
+      </header>
+
+      <section class="post-content">
+        {{content}}
+      </section>
+
+    </div>
+    <div class='col-sm-2'>
+      {{! Everything inside the #author tags pulls data from the author }} 
+      {{#author}} 
+        
+        {{#if image}}
+        <figure class="author-image">
+          <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
+        </figure>
+        {{/if}}
+
+        <section class="author">
+          <h4><a href="{{url}}">{{name}}</a></h4> {{#if bio}}
+          <p>{{bio}}</p>
+          {{/if}}
+          <div class="author-meta">
+            {{#if location}}<span class="author-location icon-location">{{location}}</span>{{/if}} {{#if website}}<span class="author-link icon-link"><a href="{{website}}">{{website}}</a></span>{{/if}}
+          </div>
+        </section>
+      {{/author}}
+
+    </div>
+  </div>
+  <div class='row'><div class='col-xs-12'>
+      <footer class="post-footer">
+        
+        <ul class="share-buttons">
+          <li>
+            <a 
+              href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}&t={{encode title}}" 
+              target="_blank" 
+              title="{{t "share.facebook"}}" 
+              class="facebook">
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://twitter.com/intent/tweet?source={{url absolute="true"}}&text={{encode title}}:%20{{url absolute="true"}}" 
+              target="_blank" 
+              title="{{t "share.twitter"}}" 
+              class="twitter">
+            </a>
+          </li>
+          <li>
+            <a 
+              href="https://getpocket.com/save?url={{url absolute="true"}}&title={{encode title}}" 
+              target="_blank" 
+              title="{{t "share.pocket"}}" 
+              class="pocket">
+            </a>
+          </li>
+          <li>
+            <a 
+              href="http://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}&summary={{encode title}}&source=http%3A%2F%2Fwww.zoined.com" 
+              target="_blank" 
+              title="{{t "share.linkedin"}}" 
+              class="linkedin">
+            </a>
+          </li>
+          <li>
+            <a href="mailto:?subject={{encode title}}&body={{encode title}}:%20{{url absolute="true"}}" target="_blank" title="Email" class="email">
+            </a>
+          </li>
+        </ul>
+
+      </footer>
+  </div></div>
+
+</article>
+
+{{/post}}

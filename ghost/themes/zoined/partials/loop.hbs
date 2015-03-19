@@ -1,0 +1,37 @@
+{{#foreach posts}}
+<article class="{{post_class}}">
+  <div class='row'>
+    <div class='col-sm-6'>
+      <header class="post-header">
+        <h2 class="post-title"><a href="{{url}}">{{{title}}}</a></h2>
+      </header>
+      <footer class="post-meta">
+        {{#if author.image}}
+          <img class="author-thumb" src="{{author.image}}" alt="Author image" nopin="nopin" />
+        {{/if}} 
+        {{{author}}} 
+        {{{tags prefix=" on "}}}
+        <time class="post-date" datetime="{{mydate format='YYYY-MM-DD'}}">{{mydate format="L"}}</time>
+      </footer>
+    </div>
+    <div class='col-sm-6'>
+
+      <section class="post-excerpt">
+        <p>
+          {{excerpt words="26"}}...<br>
+          <a class='btn btn-default btn-xs read-more' href="{{url}}">
+            {{t "read_more"}}
+          </a>
+          {{#isdraft}}
+            <a class='btn btn-warning btn-xs read-more disabled' href="{{url}}">
+              draft
+            </a>
+          {{/isdraft}}
+        </p>
+      </section>
+
+    </div>
+  </div>
+</article>
+{{/foreach}} {{! Previous/next page links - displayed on every page }} 
+{{>mypagination pagination}}

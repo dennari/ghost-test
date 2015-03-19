@@ -1,0 +1,9 @@
+<nav class="pagination" role="navigation">
+    {{#if prev}}
+        <a class="newer-posts" href="{{page_url prev}}">&larr; {{t "pagination.newer"}}</a>
+    {{/if}}
+    <span class="page-number">{{t "pagination.page"}} {{page}} / {{pages}}</span>
+    {{#if next}}
+        <a class="older-posts" href="{{page_url next}}">{{t "pagination.older"}} &rarr;</a>
+    {{/if}}
+</nav>
