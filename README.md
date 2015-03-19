@@ -1,4 +1,4 @@
 # ghost-test
 
-Just tAAAAAAo test nodegit
+Just testing
 Yea yea YEAAA
